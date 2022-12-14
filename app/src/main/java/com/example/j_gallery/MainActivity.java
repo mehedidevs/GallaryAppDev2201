@@ -83,16 +83,16 @@ public class MainActivity extends AppCompatActivity {
                 Gallery gallery = new Gallery(id,date,size,name,imageUri);
                 galleryList.add(gallery);
 
-                adapter = new GalleryAdapter(MainActivity.this,galleryList);
-
-                binding.recycler.setAdapter(adapter);
-
                 if (!cursor.isLast()){
                     cursor.moveToNext();
                 }else {
                     break;
                 }
             }
+
+            adapter = new GalleryAdapter(MainActivity.this,galleryList);
+
+            binding.recycler.setAdapter(adapter);
         }
 
     }
