@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
-    Context context;
-    List<Gallery> galleryList;
+    private Context context;
+    private List<Gallery> galleryList;
 
     public GalleryAdapter(Context context, List<Gallery> galleryList) {
         this.context = context;
@@ -22,7 +22,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_gallery,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_gallery, parent, false);
         return new GalleryViewHolder(view);
     }
 
