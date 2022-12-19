@@ -40,13 +40,16 @@ public class MainActivity extends AppCompatActivity {
         Dexter.withContext(this)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
-                    @Override public void onPermissionGranted(PermissionGrantedResponse response) {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
                         getData();
                       }
-                    @Override public void onPermissionDenied(PermissionDeniedResponse response) {
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
 
                       }
-                    @Override public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
                       }
                 }).check();
 
@@ -60,10 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.SIZE,
                 MediaStore.Images.Media.DATE_MODIFIED,
-                MediaStore.Images.Media.DISPLAY_NAME
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.BUCKET_DISPLAY_NAME
         };
 
         Uri contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+
 
         Cursor cursor = getContentResolver().query(contentUri,projection,null,null, null);
 
@@ -91,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             adapter = new GalleryAdapter(MainActivity.this,galleryList);
-
             binding.recycler.setAdapter(adapter);
         }
 
