@@ -1,6 +1,7 @@
 package com.example.j_gallery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
 
         Gallery gallery = galleryList.get(position);
         holder.img.setImageURI(gallery.getImageUri());
+
+        holder.itemView.setOnClickListener(v -> {
+
+            String uriStr = String.valueOf(gallery.imageUri);
+
+            Intent intent = new Intent(context, FullImageActivity.class);
+            intent.putExtra("img", uriStr);
+            context.startActivity(intent);
+
+
+        });
+
 
     }
 

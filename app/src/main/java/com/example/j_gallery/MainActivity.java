@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     List<Gallery> galleryList;
     GalleryAdapter adapter;
+    String name="Masum";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToPosition(0);
 
             while (true){
-
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
                 double size = cursor.getDouble(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.SIZE));
                 String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME));
